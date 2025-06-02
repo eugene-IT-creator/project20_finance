@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'RobotoRegular';
+  src: url('../fonts/Robotoregular.ttf');
+}
+
+@font-face {
+  font-family: 'RobotoMedium';
+  src: url('../fonts/Robotomedium.ttf');
+}
+
+@font-face {
+  font-family: 'RobotoBold';
+  src: url('../fonts/Robotobold.ttf');
+}
+
+.login-box {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  form .input-group input {
+    width: 397px;
+  }
+
+  .card h1 {
+    margin-top: 60px;
+    font-family: "RobotoMedium", sans-serif;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .error {
+    display: none;
+  }
+}
