@@ -1,1 +1,73 @@
-VIEW INCOMES/EXPENSES
+<div class="inc-exp ms-5">
+    <div class="content-header">
+        <h1 class="inc-exp-title">Incomes and expenses</h1>
+    </div>
+    <div class="inc-exp-buttons">
+        <a href="/incomes-expenses/create?=" class="btn btn-success me-1">Create income</a>
+        <a href="/incomes-expenses/create?=" class="btn btn-danger">Create expense</a>
+    </div>
+    <section class="content d-flex flex-column">
+        <div class="inc-exp-content-actions d-flex align-items-baseline">
+            <button type="button" class="btn btn-today me-3 mb-2">Today</button>
+            <button type="button" class="btn me-3">Week</button>
+            <button type="button" class="btn me-3">Month</button>
+            <button type="button" class="btn me-3">Year</button>
+            <button type="button" class="btn me-3">All</button>
+            <button type="button" class="btn me-3">Interval</button>
+            <div class="dashboard-content-calendar">
+                <span>from </span> <a href="#">Date</a> <span> to </span> <a href="#">Date</a>
+            </div>
+        </div>
+        <table class="table table-hover border-top text-center">
+            <thead>
+            <tr>
+                <th class="col-2">№ operation</th>
+                <th class="col-2">Type</th>
+                <th class="col-2">Category</th>
+                <th class="col-2">Total</th>
+                <th class="col-2">Date</th>
+                <th class="col-5">Comments</th>
+                <th class="col-2"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td class="income-td">income</td>
+                <td>salary</td>
+                <td>500$</td>
+                <td>11.09.2022</td>
+                <td></td>
+                <td class="d-flex">
+                    <a href=""><i class="fa-solid fa-trash btn-delete icon me-2"></i></a>
+                    <a href="/incomes-expenses/edit?="><i class="fa-solid fa-pencil icon"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td class="expense-td">expense</td>
+                <td>housing</td>
+                <td>2 500$</td>
+                <td>12.09.2022</td>
+                <td></td>
+                <td class="d-flex">
+                    <a href=""><i class="fa-solid fa-trash btn-delete icon me-2"></i></a>
+                    <a href="/incomes-expenses/edit?="><i class="fa-solid fa-pencil icon"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <!-- Modal -->
+    <div class="modal border-0" id="modal">
+        <div class="modal-content">
+            <div class="modal-body text-center d-block p-0">
+                <p>Do you really want to delete this operation?</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center pt-2 p-0">
+                <button type="button" class="btn btn-success popup-btn">Yes, delete</button>
+                <button type="button" class="btn btn-danger popup-btn btn-close-popup">Retain</button>
+            </div>
+        </div>
+    </div>
+</div>

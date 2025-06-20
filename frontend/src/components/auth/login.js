@@ -1,7 +1,6 @@
 export class Login {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
-        console.log('LOGIN');
 
         this.findElements();
     }

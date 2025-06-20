@@ -1,1 +1,36 @@
-DASHBOARD
+<div class="dashboard container ms-5">
+    <div class="content-header">
+        <h1 class="dashboard-title">Home</h1>
+    </div>
+    <section class="content d-flex flex-column">
+        <div class="dashboard-content-actions d-flex align-items-baseline">
+            <button type="button" class="btn btn-today me-3 mb-2">Today</button>
+            <button type="button" class="btn me-3">Week</button>
+            <button type="button" class="btn me-3">Month</button>
+            <button type="button" class="btn me-3">Year</button>
+            <button type="button" class="btn me-3">All</button>
+            <button type="button" class="btn me-3">Interval</button>
+            <div class="dashboard-content-calendar">
+                <span>from </span> <a href="#">Date</a> <span> to </span> <a href="#">Date</a>
+            </div>
+        </div>
+        <div class="dashboard-pie-charts d-flex">
+            <div class="dashboard-pie-chart">
+                <div class="card">
+                    <div class="card-header border-0">Incomes</div>
+                    <div class="card-body">
+                        <canvas id="chart-incomes" class="chart chartjs-render-monitor"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-pie-chart">
+                <div class="card">
+                    <div class="card-header border-0">Expenses</div>
+                    <div class="card-body">
+                        <canvas id="chart-expenses" class="chart chartjs-render-monitor"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

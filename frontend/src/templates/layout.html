@@ -1,0 +1,57 @@
+<div class="layout d-flex">
+    <aside class="layout-sidebar-full">
+        <div class="layout-sidebar d-flex flex-column flex-shrink-0">
+            <div class="layout-logo">
+                <a href="/"
+                   class="layout-img d-flex justify-content-center align-items-center text-decoration-none mb-3">
+                    <img src="images/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="layout-menu mt-5 ms-3">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link" aria-current="page">
+                            <i class="fa-solid fa-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/incomes-expenses" class="nav-link">
+                            <i class="fa-solid fa-money-bills"></i>
+                            Income & Expense
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/incomes" class="nav-link btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#categories-collapse" aria-expanded="false" id="cat-btn">
+                            Categories<i class="chevron fa-solid fa-chevron-right"></i>
+                        </a>
+                        <div class="nav-item-collapse collapse hiding" id="categories-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li><a href="/incomes" class="rounded nav-link">Incomes</a></li>
+                                <li><a href="/expenses" class="rounded nav-link">Expenses</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="layout-menu-balance">
+                    <p>Balance: <span id="balance-amount">500$</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="layout-user pb-3 ms-3">
+            <div class="user-panel mb-3 d-flex align-items-baseline">
+                <div class="image pt-2">
+                    <i class="fas fa-circle-user fa-2xl"></i>
+                </div>
+                <div class="info ms-3">
+                    <a href="javascript:void(0);" class="layout-user-name d-block" id="profile-name"></a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Контент страницы -->
+    <div class="content-wrapper" id='content-layout'></div>
+
+</div>
