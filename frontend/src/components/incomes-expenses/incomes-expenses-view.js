@@ -2,21 +2,16 @@ export class IncomesExpensesView {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
 
-        this.deleteBtn();
+        // this.deleteBtn();
     }
 
-    deleteBtn() {
-        let modal = $('#modal');
-
-        $('.btn-delete').click(function () {
-            modal.show();
-            $('body').css('background', 'gray');
-
-            $('.btn-close-popup').click(function () {
-                modal.hide();
-                $('body').css('background', 'white');
-
-            });
-        })
-    }
+    // deleteBtn() {
+    //
+    //     const myModal = document.getElementById('exampleModalToggle')
+    //     const myInput = document.getElementById('myInput')
+    //
+    //     myModal.addEventListener('shown.bs.modal', () => {
+    //         myInput.focus();
+    //     })
+    // }
 }

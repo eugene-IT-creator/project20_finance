@@ -1,5 +1,5 @@
 export class IncomesExpensesCreate {
-    constructor() {
-        console.log('CREATE INCOMES/EXPENSES');
+    constructor(openNewRoute) {
+        this.openNewRoute = openNewRoute;
     }
 }

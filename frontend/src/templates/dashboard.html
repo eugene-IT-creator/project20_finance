@@ -4,12 +4,18 @@
     </div>
     <section class="content d-flex flex-column">
         <div class="dashboard-content-actions d-flex align-items-baseline">
-            <button type="button" class="btn btn-today me-3 mb-2">Today</button>
-            <button type="button" class="btn me-3">Week</button>
-            <button type="button" class="btn me-3">Month</button>
-            <button type="button" class="btn me-3">Year</button>
-            <button type="button" class="btn me-3">All</button>
-            <button type="button" class="btn me-3">Interval</button>
+            <input type="checkbox" class="btn-check" id="btn-check-today" checked autocomplete="off">
+            <label class="btn btn-secondary me-3 mb-2" for="btn-check-today">Today</label>
+            <input type="checkbox" class="btn-check" id="btn-check-week" checked autocomplete="off">
+            <label class="btn btn-white me-3 mb-2" for="btn-check-week">Week</label>
+            <input type="checkbox" class="btn-check" id="btn-check-month" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2" for="btn-check-month">Month</label>
+            <input type="checkbox" class="btn-check" id="btn-check-year" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2" for="btn-check-year">Year</label>
+            <input type="checkbox" class="btn-check" id="btn-check-all" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2" for="btn-check-all">All</label>
+            <input type="checkbox" class="btn-check" id="btn-check-interval" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2" for="btn-check-interval">Interval</label>
             <div class="dashboard-content-calendar">
                 <span>from </span> <a href="#">Date</a> <span> to </span> <a href="#">Date</a>
             </div>

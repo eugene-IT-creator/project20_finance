@@ -84,37 +84,29 @@
 .layout-sidebar-full {
   width: 218px;
   height: 100vh;
-  //border-right: 1px solid #D9D9D9;
 
   .layout-sidebar {
     border-right: 1px solid #D9D9D9;
-
     border-bottom: 1px #D9D9D9 solid;
   }
-
-
   .layout-logo {
     width: 218px;
     border-bottom: 1px #D9D9D9 solid;
     margin: 40px 0 20px 0;
-
     .layout-img img {
       width: 50%;
     }
   }
 
   .layout-menu {
-    //border-bottom: 1px #D9D9D9 solid;
-    //height: 826px;
-    margin-bottom: 20px;
-
     .nav {
       .nav-item {
-        width: 178px;
-        height: 40px;
-        font-family: "RobotoRegular", sans-serif;
-        font-size: 14px;
-
+        width: 180px;
+        .nav-link {
+          width: 178px;
+          font-family: "RobotoRegular", sans-serif;
+          font-size: 14px;
+        }
         .btn-toggle {
           display: inline-flex;
           font-family: "RobotoRegular", sans-serif;
@@ -129,12 +121,8 @@
           i {
             transform: rotate(90deg);
             transition: transform .35s ease;
-          }
-        }
 
-        .nav-link {
-          font-family: "RobotoRegular", sans-serif;
-          font-size: 14px;
+          }
         }
       }
     }
@@ -181,11 +169,6 @@
       .btn {
         width: 100px;
         border: 1px #6C757D solid;
-        border-radius: 4px;
-        color: #6C757D;
-        font-family: RobotoMedium, sans-serif;
-        font-size: 16px;
-        letter-spacing: 0.46px;
       }
 
       .btn:hover {
@@ -262,17 +245,17 @@
   }
 
   .modal {
-    position: fixed;
-    top: 43%;
-    left: 30%;
-    width: 530px;
-    height: 184px;
-    border: 1px solid #D9D9D9;
-    border-radius: 15px;
-    display: none;
+    //position: fixed;
+    //top: 43%;
+    //left: 30%;
+    //width: 530px;
+    //height: 184px;
+    //border: 1px solid #D9D9D9;
+    //border-radius: 15px;
+    //display: none;
 
     .modal-content {
-      padding: 40px;
+      //padding: 40px;
 
       .modal-body {
         line-height: 0.6;
@@ -416,36 +399,15 @@
         }
 
       }
-
     }
-  }
-
-  .modal {
-    position: fixed;
-    top: 43%;
-    left: 30%;
-    width: 530px;
-    height: 184px;
-    border: 1px solid #D9D9D9;
-    border-radius: 15px;
-    display: none;
-
-    .modal-content {
-      padding: 40px;
-
-      .modal-body {
-        line-height: 0.6;
-        font-family: RobotoMedium, sans-serif;
-        font-size: 20px;
-        color: #290661;
-      }
-
-      .modal-footer {
-        .popup-btn {
-          width: 111px;
-          height: 38px;
-        }
-      }
+    // MODAL
+    .modal-body {
+      font-family: RobotoMedium, sans-serif;
+      font-size: 20px;
+      color: #290661;
+    }
+    .popup-btn {
+      width: 111px;
     }
   }
 }

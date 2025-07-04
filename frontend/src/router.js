@@ -52,9 +52,9 @@ export class Router {
                 scripts: ['chart.js']
             },
             {
-                route: '/incomes',
+                route: '/incomes-view',
                 title: 'Incomes',
-                filePathTemplate: '/templates/incomes/incomes.html',
+                filePathTemplate: '/templates/incomes/incomes-view.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
                     new IncomesView(this.openNewRoute.bind(this));
@@ -79,9 +79,9 @@ export class Router {
                 },
             },
             {
-                route: '/expenses',
+                route: '/expenses-view',
                 title: 'Create an expense category',
-                filePathTemplate: '/templates/expenses/expenses.html',
+                filePathTemplate: '/templates/expenses/expenses-view.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
                     new ExpensesView(this.openNewRoute.bind(this));
@@ -218,7 +218,6 @@ export class Router {
             const href = item.getAttribute('href');
             if ((route.route.includes(href) && href !== '/') || (route.route === '/' && href === '/')) {
                 item.classList.add('active');
-
             }
             else {
                 item.classList.remove('active');

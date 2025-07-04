@@ -9,29 +9,37 @@
             </div>
             <div class="layout-menu mt-5 ms-3">
                 <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link" aria-current="page">
-                            <i class="fa-solid fa-home"></i>
-                            Home
-                        </a>
+                    <li class="nav-item mb-1">
+                        <button type="button" class="border-0 p-0 bg-transparent">
+                            <a href="/" class="nav-link d-flex align-items-start align-items-baseline">
+                                <i class="fa-solid fa-home me-2"></i>
+                                Home
+                            </a>
+                        </button>
                     </li>
-                    <li class="nav-item">
-                        <a href="/incomes-expenses" class="nav-link">
-                            <i class="fa-solid fa-money-bills"></i>
-                            Income & Expense
-                        </a>
+                    <li class="nav-item mb-1">
+                        <button type="button" class="border-0 p-0 bg-transparent">
+                            <a href="/incomes-expenses" class="nav-link d-flex align-items-start align-items-baseline">
+                                <i class="fa-solid fa-money-bills me-2"></i>
+                                Income & Expense
+                            </a>
+                        </button>
                     </li>
-                    <li class="nav-item">
-                        <a href="/incomes" class="nav-link btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#categories-collapse" aria-expanded="false" id="cat-btn">
-                            Categories<i class="chevron fa-solid fa-chevron-right"></i>
-                        </a>
-                        <div class="nav-item-collapse collapse hiding" id="categories-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                <li><a href="/incomes" class="rounded nav-link">Incomes</a></li>
-                                <li><a href="/expenses" class="rounded nav-link">Expenses</a></li>
-                            </ul>
-                        </div>
+                    <li class="nav-item"  id="nav-item-last">
+                        <button type="button" class="border-0 p-0 bg-transparent">
+                            <a href="javascript:void(0)"
+                               class="nav-link btn btn-toggle collapsed d-flex align-items-start align-items-baseline"
+                               data-bs-toggle="collapse"
+                               data-bs-target="#categories-collapse" aria-expanded="false" id="cat-btn">
+                                Categories<i class="chevron fa-solid fa-chevron-right"></i>
+                            </a>
+                            <div class="nav-item-collapse collapse hiding" id="categories-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small align-self-start">
+                                    <li><a href="/incomes-view" class=" nav-link m-0 d-flex align-items-start align-items-baseline" id="nav-link-incomes">Incomes</a></li>
+                                    <li><a href="/expenses-view" class="nav-link d-flex align-items-start align-items-baseline" id="nav-link-expenses">Expenses</a></li>
+                                </ul>
+                            </div>
+                        </button>
                     </li>
                 </ul>
                 <div class="layout-menu-balance">
