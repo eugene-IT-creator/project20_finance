@@ -30,7 +30,6 @@ export class Router {
                     new Login();
                 },
                 styles: ['icheck-bootstrap.min.css']
-
             },
             {
                 route: '/sign-up',
@@ -61,7 +60,7 @@ export class Router {
                 }
             },
             {
-                route: '/incomes/create',
+                route: '/incomes-create',
                 title: 'Create an income category',
                 filePathTemplate: '/templates/incomes/create.html',
                 useLayout: '/templates/layout.html',
@@ -70,7 +69,7 @@ export class Router {
                 }
             },
             {
-                route: '/incomes/edit',
+                route: '/incomes-edit',
                 title: 'Edit income category',
                 filePathTemplate: '/templates/incomes/edit.html',
                 useLayout: '/templates/layout.html',
@@ -88,7 +87,7 @@ export class Router {
                 }
             },
             {
-                route: '/expenses/create',
+                route: '/expenses-create',
                 title: 'Create expense category',
                 filePathTemplate: '/templates/expenses/create.html',
                 useLayout: '/templates/layout.html',
@@ -97,7 +96,7 @@ export class Router {
                 }
             },
             {
-                route: '/expenses/edit',
+                route: '/expenses-edit',
                 title: 'Edit expense category',
                 filePathTemplate: '/templates/expenses/edit.html',
                 useLayout: '/templates/layout.html',
@@ -115,7 +114,7 @@ export class Router {
                 }
             },
             {
-                route: '/incomes-expenses/create',
+                route: '/incomes-expenses-create',
                 title: 'Create income/expense',
                 filePathTemplate: '/templates/incomes-expenses/create.html',
                 useLayout: '/templates/layout.html',
@@ -124,7 +123,7 @@ export class Router {
                 }
             },
             {
-                route: '/incomes-expenses/edit',
+                route: '/incomes-expenses-edit',
                 title: 'Edit income/expense',
                 filePathTemplate: '/templates/incomes-expenses/edit.html',
                 useLayout: '/templates/layout.html',

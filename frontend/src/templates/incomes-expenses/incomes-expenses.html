@@ -1,21 +1,27 @@
 <div class="inc-exp ms-5">
     <div class="content-header">
-        <h1 class="inc-exp-title">Incomes and expenses</h1>
+        <h1 class="inc-exp-title mt-5 mb-5">Incomes and expenses</h1>
     </div>
-    <div class="inc-exp-buttons">
-        <a href="/incomes-expenses/create?=" class="btn btn-success me-1">Create income</a>
-        <a href="/incomes-expenses/create?=" class="btn btn-danger">Create expense</a>
+    <div class="inc-exp-buttons mb-5">
+        <a href="/incomes-expenses-create?=" class="btn btn-success me-1">Create income</a>
+        <a href="/incomes-expenses-create?=" class="btn btn-danger">Create expense</a>
     </div>
     <section class="content d-flex flex-column">
-        <div class="inc-exp-content-actions d-flex align-items-baseline">
-            <button type="button" class="btn btn-today me-3 mb-2">Today</button>
-            <button type="button" class="btn me-3">Week</button>
-            <button type="button" class="btn me-3">Month</button>
-            <button type="button" class="btn me-3">Year</button>
-            <button type="button" class="btn me-3">All</button>
-            <button type="button" class="btn me-3">Interval</button>
+        <div class="common-content-actions d-flex align-items-baseline mb-5">
+            <input type="checkbox" class="btn-check" id="btn-check-today" checked autocomplete="off">
+            <label class="btn btn-secondary me-3 mb-2 border border-1 rounded-1 border-secondary" for="btn-check-today">Today</label>
+            <input type="checkbox" class="btn-check" id="btn-check-week" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-week">Week</label>
+            <input type="checkbox" class="btn-check" id="btn-check-month" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-month">Month</label>
+            <input type="checkbox" class="btn-check" id="btn-check-year" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-year">Year</label>
+            <input type="checkbox" class="btn-check" id="btn-check-all" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-all">All</label>
+            <input type="checkbox" class="btn-check" id="btn-check-interval" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-interval">Interval</label>
             <div class="dashboard-content-calendar">
-                <span>from </span> <a href="#">Date</a> <span> to </span> <a href="#">Date</a>
+                <span class="pe-2">from </span> <a href="#" class="text-secondary pe-2">Date</a> <span class="pe-2"> to </span> <a href="#" class="text-secondary pe-2">Date</a>
             </div>
         </div>
         <table class="table table-hover border-top text-center">
@@ -33,33 +39,33 @@
             <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td class="income-td">income</td>
+                <td class="text-success">income</td>
                 <td>salary</td>
                 <td>500$</td>
                 <td>11.09.2022</td>
                 <td></td>
                 <td class="d-flex">
                     <button type="button" class="btn border-0 bg-transparent p-0" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-toggle="modal">
-                        <a href=""><i class="fa-solid fa-trash btn-delete icon"></i></a>
+                        <a href=""><i class="fa-solid fa-trash btn-delete text-secondary"></i></a>
                     </button>
                     <button type="button" class="btn border-0 bg-transparent">
-                        <a href="/incomes-expenses/edit?="><i class="fa-solid fa-pencil icon"></i></a>
+                        <a href="/incomes-expenses-edit?="><i class="fa-solid fa-pencil text-secondary"></i></a>
                     </button>
                 </td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td class="expense-td">expense</td>
+                <td class="text-danger">expense</td>
                 <td>housing</td>
                 <td>2 500$</td>
                 <td>12.09.2022</td>
                 <td></td>
                 <td class="d-flex">
                     <button type="button" class="btn border-0 bg-transparent p-0" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-toggle="modal">
-                        <a href=""><i class="fa-solid fa-trash btn-delete icon"></i></a>
+                        <a href=""><i class="fa-solid fa-trash btn-delete text-secondary"></i></a>
                     </button>
                     <button type="button" class="btn border-0 bg-transparent">
-                        <a href="/incomes-expenses/edit?="><i class="fa-solid fa-pencil icon"></i></a>
+                        <a href="/incomes-expenses-edit?="><i class="fa-solid fa-pencil text-secondary"></i></a>
                     </button>
                 </td>
             </tr>

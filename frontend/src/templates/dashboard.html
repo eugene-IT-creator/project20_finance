@@ -1,37 +1,37 @@
 <div class="dashboard container ms-5">
     <div class="content-header">
-        <h1 class="dashboard-title">Home</h1>
+        <h1 class="dashboard-title mt-5 mb-5">Home</h1>
     </div>
     <section class="content d-flex flex-column">
-        <div class="dashboard-content-actions d-flex align-items-baseline">
+        <div class="common-content-actions d-flex align-items-baseline mb-5">
             <input type="checkbox" class="btn-check" id="btn-check-today" checked autocomplete="off">
-            <label class="btn btn-secondary me-3 mb-2" for="btn-check-today">Today</label>
-            <input type="checkbox" class="btn-check" id="btn-check-week" checked autocomplete="off">
-            <label class="btn btn-white me-3 mb-2" for="btn-check-week">Week</label>
+            <label class="btn btn-secondary me-3 mb-2 border border-1 rounded-1 border-secondary" for="btn-check-today">Today</label>
+            <input type="checkbox" class="btn-check" id="btn-check-week" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-week">Week</label>
             <input type="checkbox" class="btn-check" id="btn-check-month" autocomplete="off">
-            <label class="btn btn-white me-3 mb-2" for="btn-check-month">Month</label>
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-month">Month</label>
             <input type="checkbox" class="btn-check" id="btn-check-year" autocomplete="off">
-            <label class="btn btn-white me-3 mb-2" for="btn-check-year">Year</label>
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-year">Year</label>
             <input type="checkbox" class="btn-check" id="btn-check-all" autocomplete="off">
-            <label class="btn btn-white me-3 mb-2" for="btn-check-all">All</label>
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-all">All</label>
             <input type="checkbox" class="btn-check" id="btn-check-interval" autocomplete="off">
-            <label class="btn btn-white me-3 mb-2" for="btn-check-interval">Interval</label>
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-interval">Interval</label>
             <div class="dashboard-content-calendar">
-                <span>from </span> <a href="#">Date</a> <span> to </span> <a href="#">Date</a>
+                <span class="pe-2">from </span> <a href="#" class="text-secondary pe-2">Date</a> <span class="pe-2"> to </span> <a href="#" class="text-secondary pe-2">Date</a>
             </div>
         </div>
         <div class="dashboard-pie-charts d-flex">
-            <div class="dashboard-pie-chart">
-                <div class="card">
-                    <div class="card-header border-0">Incomes</div>
+            <div class="dashboard-pie-chart border-end">
+                <div class="card border-0 me-4">
+                    <div class="card-header border-0 text-center bg-transparent">Incomes</div>
                     <div class="card-body">
                         <canvas id="chart-incomes" class="chart chartjs-render-monitor"></canvas>
                     </div>
                 </div>
             </div>
             <div class="dashboard-pie-chart">
-                <div class="card">
-                    <div class="card-header border-0">Expenses</div>
+                <div class="card border-0 ms-4">
+                    <div class="card-header border-0 text-center bg-transparent">Expenses</div>
                     <div class="card-body">
                         <canvas id="chart-expenses" class="chart chartjs-render-monitor"></canvas>
                     </div>

@@ -2,79 +2,40 @@
   font-family: 'RobotoRegular';
   src: url('../fonts/Robotoregular.ttf');
 }
-
 @font-face {
   font-family: 'RobotoMedium';
   src: url('../fonts/Robotomedium.ttf');
 }
-
 @font-face {
   font-family: 'RobotoBold';
   src: url('../fonts/Robotobold.ttf');
 }
 
 // LOGIN
-
 .login-box {
-  margin: 213px 0;
-
   form .input-group input {
     width: 359px;
   }
-
   .card {
-    border: none;
-
     h1 {
-      font-family: "RobotoMedium", sans-serif;
       font-size: 40px;
       color: #052C65;
     }
-
     .form {
-      label {
-        font-family: "RobotoRegular", sans-serif;
+      .checkbox label {
         font-size: 12px;
       }
-
-      input {
-        font-family: "RobotoRegular", sans-serif;
-        font-size: 15px;
-      }
-
       .input-group-text {
-        border-right: none;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         width: 38px;
       }
-
-      .checkbox {
-        display: inline-flex;
-        vertical-align: baseline;
-      }
-
-      .btn {
-        font-family: "RobotoMedium", sans-serif;
-        font-size: 15px;
-      }
     }
   }
-
   .auth-links {
-    font-family: "RobotoRegular", sans-serif;
     font-size: 12px;
     width: 397px;
-
-    span {
-      margin-right: 10px;
-    }
   }
-
-  .sign-in-link {
-    font-size: 12px;
-  }
-
   .error {
     display: none;
   }
@@ -84,35 +45,24 @@
 .layout-sidebar-full {
   width: 218px;
   height: 100vh;
-
-  .layout-sidebar {
-    border-right: 1px solid #D9D9D9;
-    border-bottom: 1px #D9D9D9 solid;
-  }
   .layout-logo {
     width: 218px;
-    border-bottom: 1px #D9D9D9 solid;
-    margin: 40px 0 20px 0;
     .layout-img img {
       width: 50%;
     }
   }
-
   .layout-menu {
     .nav {
       .nav-item {
         width: 180px;
         .nav-link {
           width: 178px;
-          font-family: "RobotoRegular", sans-serif;
           font-size: 14px;
         }
         .btn-toggle {
           display: inline-flex;
           font-family: "RobotoRegular", sans-serif;
           font-size: 14px;
-          padding-left: 17px;
-          border: 0;
           .chevron {
             margin-left: 69px;
           }
@@ -121,325 +71,116 @@
           i {
             transform: rotate(90deg);
             transition: transform .35s ease;
-
           }
         }
       }
     }
-
     .layout-menu-balance {
       font-family: "RobotoMedium", sans-serif;
       font-size: 16px;
-      line-height: 0;
       color: #052C65;
       margin-top: 531px;
-      margin-bottom: 20px;
       span {
         color: #0D6EFD;
-        margin-left: 7px;
       }
     }
   }
-
   .layout-user {
-    border-right: 1px #D9D9D9 solid;
     .layout-user-name {
-      margin-top: 20px;
-      text-decoration: none;
       font-family: "RobotoRegular", sans-serif;
       font-size: 14px;
-      line-height: 24px;
       color: #052C65;
     }
   }
 }
 
-// DASHBOARD
+// COMMON STYLES
+.text-element {
+  width: 397px;
+  height: 38px;
+}
 
-.dashboard {
-  .dashboard-title {
-    margin-top: 100px;
-    margin-bottom: 60px;
+.common-btn {
+  font-family: RobotoMedium, sans-serif;
+  font-size: 14px;
+}
+
+.text-element {
+  input {
+    outline: none;
   }
+}
 
-  .content {
-    .dashboard-content-actions {
-      margin-bottom: 140px;
-
-      .btn {
-        width: 100px;
-        border: 1px #6C757D solid;
-      }
-
-      .btn:hover {
-        color: white;
-        background-color: #6C757D;
-      }
-
-      .dashboard-content-calendar {
-        span {
-          padding-right: 10px;
-        }
-
-        a {
-          padding-right: 10px;
-          color: #6C757D;
-        }
-      }
+.content {
+  .common-content-actions {
+    .btn {
+      width: 100px;
     }
-
-    .dashboard-pie-charts {
-      .dashboard-pie-chart {
-        .card {
-          width: 437px;
-          height: 467px;
-          border: none;
-          margin-right: 20px;
-
-          .card-header {
-            background-color: transparent;
-            font-family: "RobotoMedium", sans-serif;
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: -20px;
-            color: #290661;
-          }
-        }
-
-        .card:last-child {
-          margin-left: 20px;
-        }
-      }
-
-      .dashboard-pie-chart:first-child {
-        border-right: 1px solid #D9D9D9;
-      }
+    .btn:hover {
+      color: white;
+      background-color: #6C757D;
     }
   }
 }
 
-// INCOMES
-
-.incomes {
-  .incomes-title {
-    margin-left: 0;
-    margin-top: 100px;
-    margin-bottom: 60px;
-  }
-
-  .content {
-    .incomes-element {
-      width: 352px;
-      padding: 20px 100px 20px 20px;
-      border-radius: 10px;
-      color: #290661;
-
-      span {
-        color: #CED4DA;
-        font-size: 28px;
-        height: 121px;
-        padding-top: 35px;
-      }
-    }
-
-  }
-
-  .modal {
-    //position: fixed;
-    //top: 43%;
-    //left: 30%;
-    //width: 530px;
-    //height: 184px;
-    //border: 1px solid #D9D9D9;
-    //border-radius: 15px;
-    //display: none;
-
-    .modal-content {
-      //padding: 40px;
-
-      .modal-body {
-        line-height: 0.6;
-        font-family: RobotoMedium, sans-serif;
-        font-size: 20px;
-        color: #290661;
-      }
-
-      .modal-footer {
-        .popup-btn {
-          width: 111px;
-          height: 38px;
-        }
-      }
-    }
-  }
-}
-
-// CREATE INCOMES
-
-.incomes-create {
-  .incomes-create-title {
-    margin-top: 100px;
-    margin-bottom: 40px;
-  }
-
-  .incomes-create-element {
-    .incomes-create-text {
-      width: 397px;
-      height: 38px;
-      border: 1px solid #D9D9D9;
-      border-radius: 5px;
-
-      input {
-        padding-top: 7px;
-        outline: none;
-      }
-    }
-
-    .incomes-create-buttons .btn {
-      width: 88px;
-      height: 38px;
-      font-family: RobotoMedium, sans-serif;
-      font-size: 14px;
-    }
-  }
-}
-
-// EDIT INCOMES
-
-.incomes-edit {
-  .incomes-edit-title {
-    margin-top: 100px;
-    margin-bottom: 40px;
-  }
-
-  .incomes-edit-element {
-    .incomes-edit-text {
-      width: 397px;
-      height: 38px;
-      border: 1px solid #D9D9D9;
-      border-radius: 5px;
-
-      input {
-        padding-top: 7px;
-        border: 0;
-        outline: none;
-      }
-    }
-
-    .incomes-edit-buttons .btn {
-      width: 103px;
-      height: 38px;
-      font-family: RobotoMedium, sans-serif;
-      font-size: 14px;
-    }
-  }
-}
-
-
-// INCOMES & EXPENSES
-
-.inc-exp {
-  .inc-exp-title {
-    margin-top: 100px;
-    margin-bottom: 40px;
-  }
-
-  .inc-exp-buttons {
-    margin-bottom: 40px;
-
-  }
-
-  .content {
-    .inc-exp-content-actions {
-      margin-bottom: 40px;
-
-      .btn {
-        width: 100px;
-        border: 1px #6C757D solid;
-        border-radius: 4px;
-        color: #6C757D;
-        font-family: RobotoMedium, sans-serif;
-        font-size: 16px;
-        letter-spacing: 0.46px;
-      }
-
-      .btn:hover {
-        color: white;
-        background-color: #6C757D;
-      }
-
-      .dashboard-content-calendar {
-        span {
-          padding-right: 10px;
-        }
-
-        a {
-          padding-right: 10px;
-          color: #6C757D;
-        }
-      }
-    }
-
-    .table {
-      thead {
-        th {
-          color: #052C65;
-        }
-      }
-      width: 1100px;
-      tbody {
-        .income-td {
-          color: #198754;
-        }
-        .expense-td {
-          color: #DC3545;
-        }
-        .icon {
-          color: #6C757D;
-        }
-
-      }
-    }
-    // MODAL
+.modal {
+  .modal-content {
     .modal-body {
       font-family: RobotoMedium, sans-serif;
       font-size: 20px;
       color: #290661;
     }
-    .popup-btn {
-      width: 111px;
+    .modal-footer {
+      .popup-btn {
+        width: 111px;
+      }
     }
   }
 }
 
-// INCOMES-EXPENSES PAGE
-
-// Create income/expense
-.inc-exp-create {
-  .inc-exp-create-title {
-    margin-top: 100px;
-    margin-bottom: 40px;
-    font-family: RobotoMedium, sans-serif;
-    font-size: 40px;
+// DASHBOARD
+.dashboard {
+  .card {
+    width: 437px;
+    height: 467px;
+    .card-header {
+      font-size: 28px;
+      color: #290661;
+    }
   }
+}
 
-  .inc-exp-create-element {
-    .inc-exp-create-text {
-      width: 397px;
-      height: 38px;
-      border-color: #6C757D;
 
-      input {
-        padding: 7px 0 7px 16px;
-        outline: none;
-        margin-bottom: 10px;
+// INCOMES
+.incomes {
+  .content {
+    .incomes-element {
+      width: 352px;
+      padding: 20px 100px 20px 20px;
+      color: #290661;
+      span {
+        font-size: 28px;
       }
     }
+  }
+}
 
+// INCOMES & EXPENSES
+.inc-exp {
+  .table {
+    width: 120%;
+    thead {
+      th {
+        color: #052C65;
+      }
+    }
+  }
+}
+
+// CREATE INCOME/EXPENSE
+.inc-exp-create {
+  .inc-exp-create-element {
     .inc-exp-create-buttons .btn {
-      width: 88px;
-      height: 38px;
-      font-family: RobotoMedium, sans-serif;
       font-size: 14px;
       margin-top: 210px;
     }
