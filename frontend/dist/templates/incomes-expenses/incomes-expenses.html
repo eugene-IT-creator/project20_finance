@@ -1,0 +1,89 @@
+<div class="inc-exp ms-5">
+    <div class="content-header">
+        <h1 class="inc-exp-title mt-5 mb-5">Incomes and expenses</h1>
+    </div>
+    <div class="inc-exp-buttons mb-5">
+        <a href="/incomes-expenses-create?=" class="btn btn-success me-1">Create income</a>
+        <a href="/incomes-expenses-create?=" class="btn btn-danger">Create expense</a>
+    </div>
+    <section class="content d-flex flex-column">
+        <div class="common-content-actions d-flex align-items-baseline mb-5">
+            <input type="checkbox" class="btn-check" id="btn-check-today" checked autocomplete="off">
+            <label class="btn btn-secondary me-3 mb-2 border border-1 rounded-1 border-secondary" for="btn-check-today">Today</label>
+            <input type="checkbox" class="btn-check" id="btn-check-week" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-week">Week</label>
+            <input type="checkbox" class="btn-check" id="btn-check-month" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-month">Month</label>
+            <input type="checkbox" class="btn-check" id="btn-check-year" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-year">Year</label>
+            <input type="checkbox" class="btn-check" id="btn-check-all" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-all">All</label>
+            <input type="checkbox" class="btn-check" id="btn-check-interval" autocomplete="off">
+            <label class="btn btn-white me-3 mb-2 border border-1 rounded-1 border-secondary text-secondary" for="btn-check-interval">Interval</label>
+            <div class="dashboard-content-calendar">
+                <span class="pe-2">from </span> <a href="#" class="text-secondary pe-2">Date</a> <span class="pe-2"> to </span> <a href="#" class="text-secondary pe-2">Date</a>
+            </div>
+        </div>
+        <table class="table table-hover border-top text-center">
+            <thead>
+            <tr>
+                <th class="col-2">№ operation</th>
+                <th class="col-2">Type</th>
+                <th class="col-2">Category</th>
+                <th class="col-2">Total</th>
+                <th class="col-2">Date</th>
+                <th class="col-5">Comments</th>
+                <th class="col-2"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td class="text-success">income</td>
+                <td>salary</td>
+                <td>500$</td>
+                <td>11.09.2022</td>
+                <td></td>
+                <td class="d-flex">
+                    <button type="button" class="btn border-0 bg-transparent p-0" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-toggle="modal">
+                        <a href=""><i class="fa-solid fa-trash btn-delete text-secondary"></i></a>
+                    </button>
+                    <button type="button" class="btn border-0 bg-transparent">
+                        <a href="/incomes-expenses-edit?="><i class="fa-solid fa-pencil text-secondary"></i></a>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td class="text-danger">expense</td>
+                <td>housing</td>
+                <td>2 500$</td>
+                <td>12.09.2022</td>
+                <td></td>
+                <td class="d-flex">
+                    <button type="button" class="btn border-0 bg-transparent p-0" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-toggle="modal">
+                        <a href=""><i class="fa-solid fa-trash btn-delete text-secondary"></i></a>
+                    </button>
+                    <button type="button" class="btn border-0 bg-transparent">
+                        <a href="/incomes-expenses-edit?="><i class="fa-solid fa-pencil text-secondary"></i></a>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" id="myInput">
+                <div class="modal-content d-flex align-items-center justify-content-center p-4 border-0">
+                    <div class="modal-body p-2">
+                        Do you really want to delete this operation?
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button class="btn btn-success popup-btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Yes, delete</button>
+                        <button class="btn btn-danger popup-btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Retain</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

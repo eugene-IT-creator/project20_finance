@@ -27,7 +27,7 @@ export class Router {
                 filePathTemplate: '/templates/auth/login.html',
                 useLayout: false,
                 load: () => {
-                    new Login();
+                    new Login(this.openNewRoute.bind(this));
                 },
                 styles: ['icheck-bootstrap.min.css']
             },
@@ -37,8 +37,13 @@ export class Router {
                 filePathTemplate: '/templates/auth/sign-up.html',
                 useLayout: false,
                 load: () => {
-                    new SignUp();
-                }
+                    document.body.classList.add('register-page'); // При загрузке страницы добавляем нужный класс
+                    new SignUp(this.openNewRoute.bind(this));
+                },
+                unload: () => {
+                    document.body.classList.remove('register-page');
+                    document.body.style.height = 'auto';
+                },
             },
             {
                 route: '/',
@@ -131,6 +136,12 @@ export class Router {
                     new IncomesExpensesEdit(this.openNewRoute.bind(this));
                 }
             },
+            {
+                route: '/logout',
+                load: () => {
+                    new Logout(this.openNewRoute.bind(this));
+                }
+            },
         ]
     }
 
@@ -158,9 +169,9 @@ export class Router {
         if (element) {
             e.preventDefault();
             const currentRoute = window.location.pathname;
-            // Заменяем ссылку с localhost:9000, чтобы оставалось только название самой страницы
+            // Exchange the link localhost:9001, so that only the name of the page itself remains
             const url = element.href.replace(window.location.origin, '');
-            // Переход на другую страницу
+            // Switch to another page
             if (!url || (currentRoute === url.replace('#', '')) || url.startsWith('javascript:void(0)')) {
                 return;
             }
@@ -168,47 +179,61 @@ export class Router {
         }
     }
 
-    async activateRoute() {
+    async activateRoute(e, oldRoute = null) {
+        if (oldRoute) {
+            const currentRoute = this.routes.find(item => item.route === oldRoute);
+            if (currentRoute.unload && typeof currentRoute.unload === 'function') {
+                currentRoute.unload();
+            }
+        }
+
         // Что находится в url-адресе и где находится пользователь
         const urlRoute = window.location.pathname;
         const newRoute = this.routes.find(item => item.route === urlRoute);
 
-        // Вставляется нужный заголовок страницы
-        if (newRoute.title) {
-            this.titlePageElement.innerText = newRoute.title + ' | Lumincoin Finance';
-        }
-
-        if (newRoute.filePathTemplate) {
-            let contentBlock = this.contentPageElement
-            if (newRoute.useLayout) {
-                this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
-                contentBlock = document.getElementById('content-layout');
-
-
-                // Вставить имя и фамилию администратора
-                this.profileNameElement = document.getElementById('profile-name');
-                if (!this.userName) {
-                    let userInfo = AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey);
-                    if (userInfo) {
-                        userInfo = JSON.parse(userInfo);
-                        if (userInfo && userInfo.name) {
-                            this.userName = userInfo.name;
-                        }
-                    }
-                }
-                // Нет лишнего парсинга при переходах на другие страницы
-                this.profileNameElement.innerText = this.userName;
-
-                // Чтобы при переходе на другую страницу она подсвечивалась в меню
-                this.activateMenuItem(newRoute);
+        if (newRoute) {
+            // The required page title is inserted
+            if (newRoute.title) {
+                this.titlePageElement.innerText = newRoute.title + ' | Lumincoin Finance';
             }
 
-            contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
-        }
+            // Insert the necessary content into the html page
+            if (newRoute.filePathTemplate) {
+                let contentBlock = this.contentPageElement
+                if (newRoute.useLayout) {
+                    this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
+                    contentBlock = document.getElementById('content-layout');
 
-        // Загружаются компоненты страниц
-        if (newRoute.load && typeof newRoute.load === 'function') {
-            newRoute.load();
+                    // Insert the first and last name of the administrator
+                    this.profileNameElement = document.getElementById('profile-name');
+                    if (!this.userName) {
+                        let userInfo = AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey);
+                        if (userInfo) {
+                            userInfo = JSON.parse(userInfo);
+                            if (userInfo && userInfo.name) {
+                                this.userName = userInfo.name;
+                            }
+                        }
+                    }
+                    // No unnecessary parsing when navigating to other pages
+                    this.profileNameElement.innerText = this.userName;
+
+                    // To highlight the page in the menu when switching to another page
+                    this.activateMenuItem(newRoute);
+                }
+
+                contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
+            }
+
+            // Loading page components
+            if (newRoute.load && typeof newRoute.load === 'function') {
+                newRoute.load();
+            }
+
+        } else {
+            console.log('No route found!');
+            // history.pushState({}, '', '/404');
+            await this.activateRoute();
         }
     }
 

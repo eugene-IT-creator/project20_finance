@@ -1,0 +1,65 @@
+<div class="layout d-flex">
+    <aside class="layout-sidebar-full">
+        <div class="layout-sidebar d-flex flex-column flex-shrink-0 border-end border-bottom">
+            <div class="layout-logo border-bottom mt-4 mb-2">
+                <a href="/"
+                   class="layout-img d-flex justify-content-center align-items-center text-decoration-none mb-3">
+                    <img src="images/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="layout-menu mt-4 ms-3">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item mb-1">
+                        <button type="button" class="border-0 p-0 bg-transparent">
+                            <a href="/" class="nav-link d-flex align-items-start align-items-baseline">
+                                <i class="fa-solid fa-home me-2"></i>
+                                Home
+                            </a>
+                        </button>
+                    </li>
+                    <li class="nav-item mb-1">
+                        <button type="button" class="border-0 p-0 bg-transparent">
+                            <a href="/incomes-expenses" class="nav-link d-flex align-items-start align-items-baseline">
+                                <i class="fa-solid fa-money-bills me-2"></i>
+                                Income & Expense
+                            </a>
+                        </button>
+                    </li>
+                    <li class="nav-item"  id="nav-item-last">
+                        <button type="button" class="border-0 p-0 bg-transparent">
+                            <a href="javascript:void(0)"
+                               class="nav-link btn btn-toggle collapsed d-flex align-items-start align-items-baseline"
+                               data-bs-toggle="collapse"
+                               data-bs-target="#categories-collapse" aria-expanded="false" id="cat-btn">
+                                Categories<i class="chevron fa-solid fa-chevron-right"></i>
+                            </a>
+                            <div class="nav-item-collapse collapse hiding" id="categories-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small align-self-start">
+                                    <li><a href="/incomes-view" class=" nav-link m-0 d-flex align-items-start align-items-baseline" id="nav-link-incomes">Incomes</a></li>
+                                    <li><a href="/expenses-view" class="nav-link d-flex align-items-start align-items-baseline" id="nav-link-expenses">Expenses</a></li>
+                                </ul>
+                            </div>
+                        </button>
+                    </li>
+                </ul>
+                <div class="layout-menu-balance mb-3">
+                    <p>Balance: <span class="ms-2" id="balance-amount">500$</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="layout-user pb-3 ms-3 border-end">
+            <div class="user-panel mb-3 d-flex align-items-baseline">
+                <div class="image pt-2">
+                    <i class="fas fa-circle-user fa-2xl"></i>
+                </div>
+                <div class="info ms-3">
+                    <a href="javascript:void(0);" class="layout-user-name d-block mt-4 text-decoration-none" id="profile-name"></a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Контент страницы -->
+    <div class="content-wrapper" id='content-layout'></div>
+
+</div>

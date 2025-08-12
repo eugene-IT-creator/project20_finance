@@ -1,0 +1,49 @@
+<div class="login-box d-flex flex-column align-items-center mt-5">
+    <div class="login-box-logo mt-5">
+        <a href="javascript:void(0);">
+            <img src="images/logo.png" alt="Logo">
+        </a>
+    </div>
+    <div class="card border-0">
+        <div class="card-body p-0">
+            <h1 class="text-center mt-5 mb-3 text-center">Enter</h1>
+            <div id="common-error" class="error invalid-feedback text-center mb-3">Wrong email or password</div>
+            <form class="form">
+                <div class="input-group mb-2">
+                    <div class="input-group-append">
+                        <div class="input-group-text h-100">
+                            <span class="fas fa-envelope-open"></span>
+                        </div>
+                    </div>
+                    <input type="email" class="form-control input" placeholder="Email" id="email">
+                    <span id="email-error" class="error invalid-feedback">Please enter your email</span>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <div class="input-group-text h-100">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    <input type="password" class="form-control input" placeholder="Password" id="password">
+                    <span id="password-error" class="error invalid-feedback">Please enter your password</span>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="icheck-primary mb-2 checkbox d-inline-flex align-baseline">
+                            <input type="checkbox" id="remember-me" class="me-2">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary btn-block w-100" id="process-button">Sign In</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="auth-links mt-2">
+        <div><span class="me-2">No account yet?</span><a href="/sign-up">Go to registration</a></div>
+    </div>
+</div>

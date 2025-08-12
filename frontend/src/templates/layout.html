@@ -25,18 +25,26 @@
                             </a>
                         </button>
                     </li>
-                    <li class="nav-item"  id="nav-item-last">
+                    <li class="nav-item" id="nav-item-last">
                         <button type="button" class="border-0 p-0 bg-transparent">
                             <a href="javascript:void(0)"
-                               class="nav-link btn btn-toggle collapsed d-flex align-items-start align-items-baseline"
+                               class="nav-link btn btn-toggle collapsed inline-flex align-items-start align-items-baseline"
                                data-bs-toggle="collapse"
                                data-bs-target="#categories-collapse" aria-expanded="false" id="cat-btn">
                                 Categories<i class="chevron fa-solid fa-chevron-right"></i>
                             </a>
                             <div class="nav-item-collapse collapse hiding" id="categories-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small align-self-start">
-                                    <li><a href="/incomes-view" class=" nav-link m-0 d-flex align-items-start align-items-baseline" id="nav-link-incomes">Incomes</a></li>
-                                    <li><a href="/expenses-view" class="nav-link d-flex align-items-start align-items-baseline" id="nav-link-expenses">Expenses</a></li>
+                                    <li>
+                                        <a href="/incomes-view"
+                                           class="nav-link m-0 d-flex align-items-start align-items-baseline"
+                                           id="nav-link-incomes">Incomes</a>
+                                    </li>
+                                    <li>
+                                        <a href="/expenses-view"
+                                           class="nav-link d-flex align-items-start align-items-baseline"
+                                           id="nav-link-expenses">Expenses</a>
+                                    </li>
                                 </ul>
                             </div>
                         </button>
@@ -53,8 +61,17 @@
                     <i class="fas fa-circle-user fa-2xl"></i>
                 </div>
                 <div class="info ms-3">
-                    <a href="javascript:void(0);" class="layout-user-name d-block mt-4 text-decoration-none" id="profile-name"></a>
+                    <a href="javascript:void(0);" class="layout-user-name d-block mt-4 text-decoration-none btn-toggle-logout collapsed"
+                       id="profile-name" data-bs-toggle="collapse" data-bs-target="#logout-collapse" aria-expanded="false" id="logout-btn"></a>
                 </div>
+            </div>
+            <div class="nav-item-collapse collapse hiding" id="logout-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small align-self-start">
+                    <li>
+                        <a class="nav-link m-0 d-flex align-items-start align-items-baseline" data-widget="control-sidebar"
+                           data-controlsidebar-slide="true" href="/logout" role="button">Logout</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </aside>

@@ -60,14 +60,13 @@
           font-size: 14px;
         }
         .btn-toggle {
-          display: inline-flex;
           font-family: "RobotoRegular", sans-serif;
           font-size: 14px;
           .chevron {
             margin-left: 69px;
           }
         }
-        .btn-toggle[aria-expanded="true"] {
+        .btn-toggle [aria-expanded="true"] {
           i {
             transform: rotate(90deg);
             transition: transform .35s ease;
@@ -86,11 +85,24 @@
     }
   }
   .layout-user {
-    .layout-user-name {
-      font-family: "RobotoRegular", sans-serif;
-      font-size: 14px;
-      color: #052C65;
+    .user-panel {
+      .layout-user-name {
+        font-family: "RobotoRegular", sans-serif;
+        font-size: 14px;
+        color: #052C65;
+      }
+      .btn-toggle-logout {
+        font-family: "RobotoRegular", sans-serif;
+        font-size: 14px;
+      }
+      .btn-toggle-logout [aria-expanded="true"] {
+        i {
+          transform: rotate(90deg);
+          transition: transform .35s ease;
+        }
+      }
     }
+
   }
 }
 
