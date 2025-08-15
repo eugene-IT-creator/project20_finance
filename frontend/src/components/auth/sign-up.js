@@ -32,6 +32,7 @@ export class SignUp {
         this.passwordRepeatElement = document.getElementById("password-repeat");
         this.agreeElement = document.getElementById("agree");
         this.commonErrorElement = document.getElementById("common-error");
+        this.errorFeedbackElement = document.getElementsByClassName("error");
     }
 
     async signUp() {

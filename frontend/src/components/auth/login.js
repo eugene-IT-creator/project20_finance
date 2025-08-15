@@ -29,6 +29,7 @@ export class Login {
 
     async login() {
         this.commonErrorElement.style.display = 'none';
+        this.rememberMeElement.style.display = 'none';
 
         if (ValidationUtils.validateForm(this.validations)) {
             // REQUEST
@@ -43,10 +44,10 @@ export class Login {
                     id: loginResult.id,
                     name: loginResult.name
                 });
-                // Перевод на страницу не перезагружая все приложение
                 return this.openNewRoute('/');
             }
             this.commonErrorElement.style.display = 'block';
+            this.rememberMeElement.style.display = 'block';
         }
     }
 }

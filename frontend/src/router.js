@@ -11,6 +11,7 @@ import {Login} from "./components/auth/login";
 import {SignUp} from "./components/auth/sign-up";
 import {Dashboard} from "./components/dashboard";
 import {AuthUtils} from "./utils/auth-utils";
+import {Logout} from "./components/auth/logout";
 
 export class Router {
     constructor() {
@@ -29,7 +30,7 @@ export class Router {
                 load: () => {
                     new Login(this.openNewRoute.bind(this));
                 },
-                styles: ['icheck-bootstrap.min.css']
+                styles: ['icheck-bootstrap.min.css'],
             },
             {
                 route: '/sign-up',
@@ -37,12 +38,7 @@ export class Router {
                 filePathTemplate: '/templates/auth/sign-up.html',
                 useLayout: false,
                 load: () => {
-                    document.body.classList.add('register-page'); // При загрузке страницы добавляем нужный класс
                     new SignUp(this.openNewRoute.bind(this));
-                },
-                unload: () => {
-                    document.body.classList.remove('register-page');
-                    document.body.style.height = 'auto';
                 },
             },
             {
@@ -187,7 +183,7 @@ export class Router {
             }
         }
 
-        // Что находится в url-адресе и где находится пользователь
+        // what's in url & where is the user?
         const urlRoute = window.location.pathname;
         const newRoute = this.routes.find(item => item.route === urlRoute);
 
@@ -199,9 +195,10 @@ export class Router {
 
             // Insert the necessary content into the html page
             if (newRoute.filePathTemplate) {
-                let contentBlock = this.contentPageElement
+                let contentBlock = this.contentPageElement;
                 if (newRoute.useLayout) {
-                    this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
+                    this.contentPageElement.innerHTML = await fetch(newRoute.useLayout)
+                        .then(response => response.text());
                     contentBlock = document.getElementById('content-layout');
 
                     // Insert the first and last name of the administrator
@@ -232,7 +229,6 @@ export class Router {
 
         } else {
             console.log('No route found!');
-            // history.pushState({}, '', '/404');
             await this.activateRoute();
         }
     }
