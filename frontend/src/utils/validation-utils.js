@@ -6,29 +6,31 @@ export class ValidationUtils {
                 isValid = false;
             }
         }
+        return isValid;
     }
 
     static validateField(element, options) {
-        let condition = element.value;
-        if (options) {
-            if (options.hasOwnProperty('pattern')) {
-                condition = element.value && element.value.match(options.pattern);
-            } else if (options.hasOwnProperty('compareTo')) {
-                condition = element.value && element.value === options.compareTo;
-            } else if (options.hasOwnProperty('checkProperty')) {
-                condition = options.checkProperty;
-            } else if (options.hasOwnProperty('checked')) {
-                condition = options.checked;
+        if (element != null) {
+            let condition = element.value;
+            if (options) {
+                if (options.hasOwnProperty('pattern')) {
+                    condition = element.value && element.value.match(options.pattern);
+                } else if (options.hasOwnProperty('compareTo')) {
+                    condition = element.value && element.value === options.compareTo;
+                } else if (options.hasOwnProperty('checkProperty')) {
+                    condition = options.checkProperty;
+                } else if (options.hasOwnProperty('checked')) {
+                    condition = element.checked;
+                }
             }
-        }
-
-        // For email
-        if (condition) {
-            element.classList.remove('is-invalid');
-            return true;
-        } else {
-            element.classList.add('is-invalid');
-            return false;
+            // For email
+            if (condition) {
+                element.classList.remove('is-invalid');
+                return true;
+            } else {
+                element.classList.add('is-invalid');
+                return false;
+            }
         }
     }
 }

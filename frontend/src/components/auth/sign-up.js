@@ -17,8 +17,7 @@ export class SignUp {
             {element: this.lastNameElement},
             {element: this.emailElement, options: {pattern: /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/}},
             {element: this.passwordElement, options: {pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/}},
-            {element: this.passwordRepeatElement, options: {compareTo: this.passwordElement.value}},
-            {element: this.agreeElement, options: {checked: true}},
+            {element: this.passwordRepeatElement, options: {compareTo: this.passwordElement.value}}
         ];
 
         document.getElementById('process-button').addEventListener('click', this.signUp.bind(this));
@@ -30,9 +29,7 @@ export class SignUp {
         this.lastNameElement = document.getElementById("last-name");
         this.passwordElement = document.getElementById("password");
         this.passwordRepeatElement = document.getElementById("password-repeat");
-        this.agreeElement = document.getElementById("agree");
         this.commonErrorElement = document.getElementById("common-error");
-        this.errorFeedbackElement = document.getElementsByClassName("error");
     }
 
     async signUp() {
@@ -52,16 +49,18 @@ export class SignUp {
                 lastName: this.lastNameElement.value,
                 email: this.emailElement.value,
                 password: this.passwordElement.value,
+                passwordRepeat: this.passwordRepeatElement.value
             })
 
             if (signupResult) {
-                AuthUtils.setAuthInfo(signupResult.accessToken, signupResult.refreshToken, {
-                    id: signupResult.id,
-                    name: signupResult.name
-                });
-                // Moving to a page without reloading the entire application
-                return this.openNewRoute('/');
-            }
+                this.openNewRoute('/login')
+                // AuthUtils.setAuthInfo(signupResult.accessToken, signupResult.refreshToken, {
+                //     id: signupResult.id,
+                //     name: signupResult.name
+                } else {
+                    // Moving to a page without reloading the entire application
+                    return this.openNewRoute('/');
+                }
             this.commonErrorElement.style.display = 'block';
         }
     }

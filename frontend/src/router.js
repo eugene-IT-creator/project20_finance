@@ -209,6 +209,7 @@ export class Router {
                             userInfo = JSON.parse(userInfo);
                             if (userInfo && userInfo.name) {
                                 this.userName = userInfo.name;
+                                console.log(userInfo);
                             }
                         }
                     }
