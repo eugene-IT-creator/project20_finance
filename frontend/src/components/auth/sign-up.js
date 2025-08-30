@@ -53,7 +53,6 @@ export class SignUp {
             })
 
             if (signupResult) {
-                // this.openNewRoute('/login')
                 AuthUtils.setAuthInfo(signupResult.accessToken, signupResult.refreshToken, {
                     id: signupResult.user.id,
                     name: signupResult.user.name
