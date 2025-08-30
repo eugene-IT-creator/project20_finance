@@ -53,14 +53,14 @@ export class SignUp {
             })
 
             if (signupResult) {
-                this.openNewRoute('/login')
-                // AuthUtils.setAuthInfo(signupResult.accessToken, signupResult.refreshToken, {
-                //     id: signupResult.id,
-                //     name: signupResult.name
-                } else {
-                    // Moving to a page without reloading the entire application
-                    return this.openNewRoute('/');
-                }
+                // this.openNewRoute('/login')
+                AuthUtils.setAuthInfo(signupResult.accessToken, signupResult.refreshToken, {
+                    id: signupResult.user.id,
+                    name: signupResult.user.name
+                })
+                // Moving to a page without reloading the entire application
+                return this.openNewRoute('/');
+            }
             this.commonErrorElement.style.display = 'block';
         }
     }

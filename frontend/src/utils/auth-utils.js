@@ -51,7 +51,6 @@ export class AuthUtils {
                 }
             }
         }
-
         if (!result) {
             this.removeAuthInfo();
         }

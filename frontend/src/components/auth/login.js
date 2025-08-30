@@ -40,9 +40,9 @@ export class Login {
             });
 
             if (loginResult) {
-                AuthUtils.setAuthInfo(loginResult.accessToken, loginResult.refreshToken, {
-                    id: loginResult.id,
-                    name: loginResult.name
+                AuthUtils.setAuthInfo(loginResult.tokens.accessToken, loginResult.tokens.refreshToken, {
+                    id: loginResult.user.id,
+                    name: loginResult.user.name
                 });
                 return this.openNewRoute('/');
             }

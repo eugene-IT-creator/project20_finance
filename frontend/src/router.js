@@ -201,7 +201,7 @@ export class Router {
                         .then(response => response.text());
                     contentBlock = document.getElementById('content-layout');
 
-                    // Insert the first and last name of the administrator
+                    // Insert the first and last name of the user
                     this.profileNameElement = document.getElementById('profile-name');
                     if (!this.userName) {
                         let userInfo = AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey);

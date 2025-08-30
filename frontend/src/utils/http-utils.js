@@ -17,7 +17,6 @@ export class HttpUtils {
         };
 
         let token = null;
-
         if (useAuth) {
             let token = AuthUtils.getAuthInfo(AuthUtils.accessTokenKey);
             if (token) {
@@ -28,7 +27,6 @@ export class HttpUtils {
         if (body) {
             params.body = JSON.stringify(body);
         }
-
         let response = null;
         try {
             response = await fetch (config.api + url, params);
