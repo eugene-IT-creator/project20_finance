@@ -18,9 +18,9 @@ export class HttpUtils {
 
         let token = null;
         if (useAuth) {
-            let token = AuthUtils.getAuthInfo(AuthUtils.accessTokenKey);
+            token = AuthUtils.getAuthInfo(AuthUtils.accessTokenKey);
             if (token) {
-                params.headers['authorization'] = token;
+                params.headers['x-auth-token'] = token;
             }
         }
 
@@ -29,7 +29,7 @@ export class HttpUtils {
         }
         let response = null;
         try {
-            response = await fetch (config.api + url, params);
+            response = await fetch(config.api + url, params);
             result.response = await response.json();
         } catch (e) {
             result.error = true;

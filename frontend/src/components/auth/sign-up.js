@@ -53,12 +53,7 @@ export class SignUp {
             })
 
             if (signupResult) {
-                AuthUtils.setAuthInfo(signupResult.accessToken, signupResult.refreshToken, {
-                    id: signupResult.user.id,
-                    name: signupResult.user.name
-                })
-                // Moving to a page without reloading the entire application
-                return this.openNewRoute('/');
+                return this.openNewRoute('/login');
             }
             this.commonErrorElement.style.display = 'block';
         }

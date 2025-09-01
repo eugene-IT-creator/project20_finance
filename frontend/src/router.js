@@ -195,32 +195,38 @@ export class Router {
 
             // Insert the necessary content into the html page
             if (newRoute.filePathTemplate) {
-                let contentBlock = this.contentPageElement;
                 if (newRoute.useLayout) {
-                    this.contentPageElement.innerHTML = await fetch(newRoute.useLayout)
-                        .then(response => response.text());
-                    contentBlock = document.getElementById('content-layout');
+                    const contentPageElement = document.getElementById('content-layout');
+                    if (!contentPageElement) {
+                        this.contentPageElement.innerHTML = await fetch(newRoute.useLayout)
+                            .then(response => response.text());
+                        const contentPageElement = document.getElementById('content-layout');
+                        contentPageElement.innerHTML = await fetch(newRoute.filePathTemplate)
+                            .then(response => response.text());
 
-                    // Insert the first and last name of the user
-                    this.profileNameElement = document.getElementById('profile-name');
-                    if (!this.userName) {
-                        let userInfo = AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey);
-                        if (userInfo) {
-                            userInfo = JSON.parse(userInfo);
-                            if (userInfo && userInfo.name) {
-                                this.userName = userInfo.name;
-                                console.log(userInfo);
+                        // Insert the first and last name of the user
+                        this.profileNameElement = document.getElementById('profile-name');
+                        if (!this.userName) {
+                            let userInfo = AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey);
+                            if (userInfo) {
+                                userInfo = JSON.parse(userInfo);
+                                if (userInfo && userInfo.name) {
+                                    this.userName = userInfo.name;
+                                }
                             }
                         }
+                        // No unnecessary parsing when navigating to other pages
+                        this.profileNameElement.innerText = this.userName;
+
+                        // To highlight the page in the menu when switching to another page
+                        this.activateMenuItem(newRoute);
+
+                    } else {
+                        contentPageElement.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
                     }
-                    // No unnecessary parsing when navigating to other pages
-                    this.profileNameElement.innerText = this.userName;
-
-                    // To highlight the page in the menu when switching to another page
-                    this.activateMenuItem(newRoute);
+                } else {
+                    this.contentPageElement.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
                 }
-
-                contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
             }
 
             // Loading page components
@@ -239,8 +245,7 @@ export class Router {
             const href = item.getAttribute('href');
             if ((route.route.includes(href) && href !== '/') || (route.route === '/' && href === '/')) {
                 item.classList.add('active');
-            }
-            else {
+            } else {
                 item.classList.remove('active');
                 item.style.color = '#052C65';
             }
