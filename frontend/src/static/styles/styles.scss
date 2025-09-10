@@ -82,7 +82,6 @@
     }
   }
   .layout-user {
-    .user-panel {
       .layout-user-name {
         font-family: "RobotoRegular", sans-serif;
         font-size: 14px;
@@ -98,7 +97,7 @@
           transition: transform .35s ease;
         }
       }
-    }
+
 
   }
 }
@@ -149,6 +148,9 @@
 
 // DASHBOARD
 .dashboard {
+  .common-content-actions label {
+    color: grey;
+  }
   .card {
     width: 437px;
     height: 467px;
@@ -176,6 +178,9 @@
 
 // INCOMES & EXPENSES
 .inc-exp {
+  .common-content-actions label {
+    color: grey;
+  }
   .table {
     width: 120%;
     thead {

@@ -204,19 +204,17 @@ export class Router {
                         contentPageElement.innerHTML = await fetch(newRoute.filePathTemplate)
                             .then(response => response.text());
 
-                        // Insert the first and last name of the user
-                        this.profileNameElement = document.getElementById('profile-name');
-                        if (!this.userName) {
-                            let userInfo = AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey);
-                            if (userInfo) {
-                                userInfo = JSON.parse(userInfo);
-                                if (userInfo && userInfo.name) {
-                                    this.userName = userInfo.name;
-                                }
+                        // Insert the name of the user
+                        let userName = document.getElementById('userName');
+                        let userInfo = JSON.parse(AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey))
+                        if (userInfo) {
+                            userName.innerText = userInfo.name;
+                            if (userInfo.accessToken && (newRoute.route === 'login' || newRoute.route === 'signup')) {
+                                this.openNewRoute('/').then();
                             }
+                        } else if (newRoute.route !== 'login' && newRoute.route !== 'sign-up') {
+                            this.openNewRoute('/login').then();
                         }
-                        // No unnecessary parsing when navigating to other pages
-                        this.profileNameElement.innerText = this.userName;
 
                         // To highlight the page in the menu when switching to another page
                         this.activateMenuItem(newRoute);
@@ -233,7 +231,6 @@ export class Router {
             if (newRoute.load && typeof newRoute.load === 'function') {
                 newRoute.load();
             }
-
         } else {
             console.log('No route found!');
             await this.activateRoute();
