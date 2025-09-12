@@ -97,8 +97,6 @@
           transition: transform .35s ease;
         }
       }
-
-
   }
 }
 
@@ -161,10 +159,10 @@
   }
 }
 
-
 // INCOMES
 .incomes {
   .content {
+    max-width: 1100px;
     .incomes-element {
       width: 352px;
       padding: 20px 100px 20px 20px;

@@ -193,6 +193,8 @@ export class Router {
                 this.titlePageElement.innerText = newRoute.title + ' | Lumincoin Finance';
             }
 
+            this.activateMenuItem(newRoute);
+
             // Insert the necessary content into the html page
             if (newRoute.filePathTemplate) {
                 if (newRoute.useLayout) {
@@ -216,7 +218,6 @@ export class Router {
                             this.openNewRoute('/login').then();
                         }
 
-                        // To highlight the page in the menu when switching to another page
                         this.activateMenuItem(newRoute);
 
                     } else {
@@ -240,11 +241,20 @@ export class Router {
     activateMenuItem(route) {
         document.querySelectorAll('.layout-menu .nav-link').forEach(item => {
             const href = item.getAttribute('href');
-            if ((route.route.includes(href) && href !== '/') || (route.route === '/' && href === '/')) {
+            let catBtn = document.getElementById('cat-btn');
+            let categories = document.getElementById('categories-collapse');
+
+            let dropdownMenuElement = document.getElementById('nav-item-last');
+
+            if ((route.route.includes(href) && href !== '/') || (route.route === '/' && href === '/')
+                || (catBtn.classList.contains('collapsed') && categories.classList.contains('show'))) {
                 item.classList.add('active');
+                categories.classList.remove('show');
+                categories.classList.add('collapse');
             } else {
                 item.classList.remove('active');
-                item.style.color = '#052C65';
+                catBtn.style.color = '#0d6efd';
+                dropdownMenuElement.style.border = '0';
             }
         })
     }
