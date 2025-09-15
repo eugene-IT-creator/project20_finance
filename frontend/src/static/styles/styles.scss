@@ -13,7 +13,7 @@
 
 // LOGIN
 .login-box {
-  form .input-group input {
+  form {
     width: 359px;
   }
   .card {
@@ -34,7 +34,7 @@
   }
   .auth-links {
     font-size: 12px;
-    width: 397px;
+    margin-left: -160px;
   }
 }
 
