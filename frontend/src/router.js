@@ -11,6 +11,7 @@ import {Login} from "./components/auth/login";
 import {SignUp} from "./components/auth/sign-up";
 import {Dashboard} from "./components/dashboard";
 import {AuthUtils} from "./utils/auth-utils";
+import {Logout} from "./components/auth/logout";
 
 export class Router {
     constructor() {
@@ -27,9 +28,9 @@ export class Router {
                 filePathTemplate: '/templates/auth/login.html',
                 useLayout: false,
                 load: () => {
-                    new Login();
+                    new Login(this.openNewRoute.bind(this));
                 },
-                styles: ['icheck-bootstrap.min.css']
+                styles: ['icheck-bootstrap.min.css'],
             },
             {
                 route: '/sign-up',
@@ -37,8 +38,8 @@ export class Router {
                 filePathTemplate: '/templates/auth/sign-up.html',
                 useLayout: false,
                 load: () => {
-                    new SignUp();
-                }
+                    new SignUp(this.openNewRoute.bind(this));
+                },
             },
             {
                 route: '/',
@@ -131,6 +132,12 @@ export class Router {
                     new IncomesExpensesEdit(this.openNewRoute.bind(this));
                 }
             },
+            {
+                route: '/logout',
+                load: () => {
+                    new Logout(this.openNewRoute.bind(this));
+                }
+            },
         ]
     }
 
@@ -158,9 +165,9 @@ export class Router {
         if (element) {
             e.preventDefault();
             const currentRoute = window.location.pathname;
-            // Заменяем ссылку с localhost:9000, чтобы оставалось только название самой страницы
+            // Exchange the link localhost:9001, so that only the name of the page itself remains
             const url = element.href.replace(window.location.origin, '');
-            // Переход на другую страницу
+            // Switch to another page
             if (!url || (currentRoute === url.replace('#', '')) || url.startsWith('javascript:void(0)')) {
                 return;
             }
@@ -168,59 +175,86 @@ export class Router {
         }
     }
 
-    async activateRoute() {
-        // Что находится в url-адресе и где находится пользователь
+    async activateRoute(e, oldRoute = null) {
+        if (oldRoute) {
+            const currentRoute = this.routes.find(item => item.route === oldRoute);
+            if (currentRoute.unload && typeof currentRoute.unload === 'function') {
+                currentRoute.unload();
+            }
+        }
+
+        // what's in url & where is the user?
         const urlRoute = window.location.pathname;
         const newRoute = this.routes.find(item => item.route === urlRoute);
 
-        // Вставляется нужный заголовок страницы
-        if (newRoute.title) {
-            this.titlePageElement.innerText = newRoute.title + ' | Lumincoin Finance';
-        }
-
-        if (newRoute.filePathTemplate) {
-            let contentBlock = this.contentPageElement
-            if (newRoute.useLayout) {
-                this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
-                contentBlock = document.getElementById('content-layout');
-
-
-                // Вставить имя и фамилию администратора
-                this.profileNameElement = document.getElementById('profile-name');
-                if (!this.userName) {
-                    let userInfo = AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey);
-                    if (userInfo) {
-                        userInfo = JSON.parse(userInfo);
-                        if (userInfo && userInfo.name) {
-                            this.userName = userInfo.name;
-                        }
-                    }
-                }
-                // Нет лишнего парсинга при переходах на другие страницы
-                this.profileNameElement.innerText = this.userName;
-
-                // Чтобы при переходе на другую страницу она подсвечивалась в меню
-                this.activateMenuItem(newRoute);
+        if (newRoute) {
+            // The required page title is inserted
+            if (newRoute.title) {
+                this.titlePageElement.innerText = newRoute.title + ' | Lumincoin Finance';
             }
 
-            contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
-        }
+            this.activateMenuItem(newRoute);
 
-        // Загружаются компоненты страниц
-        if (newRoute.load && typeof newRoute.load === 'function') {
-            newRoute.load();
+            // Insert the necessary content into the html page
+            if (newRoute.filePathTemplate) {
+                if (newRoute.useLayout) {
+                    const contentPageElement = document.getElementById('content-layout');
+                    if (!contentPageElement) {
+                        this.contentPageElement.innerHTML = await fetch(newRoute.useLayout)
+                            .then(response => response.text());
+                        const contentPageElement = document.getElementById('content-layout');
+                        contentPageElement.innerHTML = await fetch(newRoute.filePathTemplate)
+                            .then(response => response.text());
+
+                        // Insert the name of the user
+                        let userName = document.getElementById('userName');
+                        let userInfo = JSON.parse(AuthUtils.getAuthInfo(AuthUtils.userInfoTokenKey))
+                        if (userInfo) {
+                            userName.innerText = userInfo.name;
+                            if (userInfo.accessToken && (newRoute.route === 'login' || newRoute.route === 'signup')) {
+                                this.openNewRoute('/').then();
+                            }
+                        } else if (newRoute.route !== 'login' && newRoute.route !== 'sign-up') {
+                            this.openNewRoute('/login').then();
+                        }
+
+                        this.activateMenuItem(newRoute);
+
+                    } else {
+                        contentPageElement.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
+                    }
+                } else {
+                    this.contentPageElement.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
+                }
+            }
+
+            // Loading page components
+            if (newRoute.load && typeof newRoute.load === 'function') {
+                newRoute.load();
+            }
+        } else {
+            console.log('No route found!');
+            await this.activateRoute();
         }
     }
 
     activateMenuItem(route) {
         document.querySelectorAll('.layout-menu .nav-link').forEach(item => {
             const href = item.getAttribute('href');
-            if ((route.route.includes(href) && href !== '/') || (route.route === '/' && href === '/')) {
+            let catBtn = document.getElementById('cat-btn');
+            let categories = document.getElementById('categories-collapse');
+
+            let dropdownMenuElement = document.getElementById('nav-item-last');
+
+            if ((route.route.includes(href) && href !== '/') || (route.route === '/' && href === '/')
+                || (catBtn.classList.contains('collapsed') && categories.classList.contains('show'))) {
                 item.classList.add('active');
-            }
-            else {
+                categories.classList.remove('show');
+                categories.classList.add('collapse');
+            } else {
                 item.classList.remove('active');
-                item.style.color = '#052C65';
+                catBtn.style.color = '#0d6efd';
+                dropdownMenuElement.style.border = '0';
             }
         })
     }

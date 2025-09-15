@@ -13,7 +13,7 @@
 
 // LOGIN
 .login-box {
-  form .input-group input {
+  form {
     width: 359px;
   }
   .card {
@@ -34,10 +34,7 @@
   }
   .auth-links {
     font-size: 12px;
-    width: 397px;
-  }
-  .error {
-    display: none;
+    margin-left: -160px;
   }
 }
 
@@ -60,14 +57,13 @@
           font-size: 14px;
         }
         .btn-toggle {
-          display: inline-flex;
           font-family: "RobotoRegular", sans-serif;
           font-size: 14px;
           .chevron {
             margin-left: 69px;
           }
         }
-        .btn-toggle[aria-expanded="true"] {
+        .btn-toggle [aria-expanded="true"] {
           i {
             transform: rotate(90deg);
             transition: transform .35s ease;
@@ -86,11 +82,21 @@
     }
   }
   .layout-user {
-    .layout-user-name {
-      font-family: "RobotoRegular", sans-serif;
-      font-size: 14px;
-      color: #052C65;
-    }
+      .layout-user-name {
+        font-family: "RobotoRegular", sans-serif;
+        font-size: 14px;
+        color: #052C65;
+      }
+      .btn-toggle-logout {
+        font-family: "RobotoRegular", sans-serif;
+        font-size: 14px;
+      }
+      .btn-toggle-logout [aria-expanded="true"] {
+        i {
+          transform: rotate(90deg);
+          transition: transform .35s ease;
+        }
+      }
   }
 }
 
@@ -140,6 +146,9 @@
 
 // DASHBOARD
 .dashboard {
+  .common-content-actions label {
+    color: grey;
+  }
   .card {
     width: 437px;
     height: 467px;
@@ -150,10 +159,10 @@
   }
 }
 
-
 // INCOMES
 .incomes {
   .content {
+    max-width: 1100px;
     .incomes-element {
       width: 352px;
       padding: 20px 100px 20px 20px;
@@ -167,6 +176,9 @@
 
 // INCOMES & EXPENSES
 .inc-exp {
+  .common-content-actions label {
+    color: grey;
+  }
   .table {
     width: 120%;
     thead {

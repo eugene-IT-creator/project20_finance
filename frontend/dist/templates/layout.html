@@ -33,7 +33,7 @@
                                data-bs-target="#categories-collapse" aria-expanded="false" id="cat-btn">
                                 Categories<i class="chevron fa-solid fa-chevron-right"></i>
                             </a>
-                            <div class="nav-item-collapse collapse" id="categories-collapse">
+                            <div class="nav-item-collapse collapse hiding" id="categories-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small align-self-start">
                                     <li>
                                         <a href="/incomes-view"
@@ -55,20 +55,24 @@
                 </div>
             </div>
         </div>
-        <div class="layout-user dropdown user d-flex align-items-center border-top border-2 p-3 border-end">
-            <a href="#" class="layout-user-name d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-               id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                <div class="avatar d-flex justify-content-center align-items-center">
+        <div class="layout-user pb-3 ms-3 border-end">
+            <div class="user-panel mb-3 d-flex align-items-baseline">
+                <div class="image pt-2">
                     <i class="fas fa-circle-user fa-2xl"></i>
                 </div>
-                <div class="user-name ps-2">
-                    <span id="userName"></span>
-                    <span id="userLastName"></span>
+                <div class="info ms-3">
+                    <a href="javascript:void(0);" class="layout-user-name d-block mt-4 text-decoration-none btn-toggle-logout collapsed"
+                       id="profile-name" data-bs-toggle="collapse" data-bs-target="#logout-collapse" aria-expanded="false" id="logout-btn"></a>
                 </div>
-            </a>
-            <ul class="dropdown-menu btn-toggle-logout" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
-            </ul>
+            </div>
+            <div class="nav-item-collapse collapse hiding" id="logout-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small align-self-start">
+                    <li>
+                        <a class="nav-link m-0 d-flex align-items-start align-items-baseline" data-widget="control-sidebar"
+                           data-controlsidebar-slide="true" href="/logout" role="button">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </aside>
 
